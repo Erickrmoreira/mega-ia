@@ -10,6 +10,10 @@ Sistema full-stack para geração e ranqueamento de combinações de Mega-Sena, 
 
 O score retornado é **relativo ao ranking da rodada** e **não representa probabilidade real de acerto**.
 
+
+https://github.com/user-attachments/assets/823fde77-ab2c-4d52-bbea-8903f27fc95e
+
+
 ## O que o projeto faz
 
 1. Carrega dados históricos por modalidade (`datasets/mega.csv`, `datasets/quina.csv`, `datasets/lotofacil.csv`).
