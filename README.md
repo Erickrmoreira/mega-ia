@@ -140,8 +140,7 @@ python -m ruff check .
 
 ## Próximos passos
 
-- Refatorar train.py por responsabilidade.
-- Refatorar training_jobs.py por responsabilidade.
+- Refatorar train.py e training_jobs.py por responsabilidades.
 - Melhorar performance da inferência para candidates altos.
 - Fortalecer validação estatística por modalidade.
 - Adicionar teste de carga básico do endpoint /generate/{lottery}.
