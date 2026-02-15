@@ -1,0 +1,273 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #fff;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 1.8rem;
+  margin: 30px 0 20px;
+  margin-bottom: 60px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.logo {
+  margin: 50px auto 0;
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.modality-select {
+  height: 48px;
+  padding: 0 16px;
+  padding-right: 56px;
+  background: #020617;
+  color: white;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+
+  /* Remove aparencia nativa do select para consistencia visual. */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Icone SVG inline evita dependencia externa e mantem controle de cor. */
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 14px;
+}
+
+.modality-select:focus {
+  border-color: #22c55e;
+}
+input,
+button {
+  box-sizing: border-box;
+  height: 48px;
+  font-size: 16px;
+  border-radius: 6px;
+  outline: none;
+}
+
+input {
+  padding: 12px;
+  width: 100px;
+  border: 1px solid #334155;
+  background: #020617;
+  color: white;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: #22c55e;
+}
+
+button {
+  padding: 0 24px;
+  background: #22c55e;
+  border: 1px solid #22c55e;
+  cursor: pointer;
+  font-weight: bold;
+  color: #020617;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background: #16a34a;
+  border-color: #16a34a;
+}
+
+button:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+button:disabled {
+  background: #1e293b;
+  border-color: #1e293b;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.game {
+  background: #1e293b;
+  padding: 20px 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.game-label {
+  margin-bottom: 8px;
+  color: #94a3b8;
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.balls-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.number-ball {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mega-sena-ball {
+  background: #00a650;
+}
+.quina-ball {
+  background: #8e44ad;
+}
+.lotofacil-ball {
+  background: #f39c12;
+}
+
+/* Ajuste de escala para Lotofacil devido a maior quantidade de numeros. */
+.game[data-modality="lotofacil"] .number-ball {
+  width: 34px;
+  height: 34px;
+  font-size: 0.88rem;
+}
+
+.no-games {
+  text-align: center;
+  grid-column: 1 / -1;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 10px auto;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 20px;
+  }
+
+  .modality-select,
+  input,
+  button {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .games {
+    grid-template-columns: 1fr;
+  }
+
+  .number-ball {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+
+  .game[data-modality="lotofacil"] .number-ball {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Isola formulario do grid de resultados. */
+.controls-card {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 35px;
+}
+
+.controls-card .controls {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr auto;
+  gap: 16px;
+  align-items: end;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-group label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.button-group button {
+  width: 100%;
+}
+
+/* Layout responsivo para telas estreitas. */
+@media (max-width: 640px) {
+  .controls-card .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .button-group button {
+    margin-top: 8px;
+  }
+}

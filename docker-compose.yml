@@ -1,0 +1,15 @@
+services:
+  mega_ia:
+    build: .
+    container_name: mega_ia
+    ports:
+      - "8000:8000"
+    environment:
+      - MEGA_IA_ENV=dev
+      - MEGA_IA_REQUIRE_API_KEY=false
+      - MEGA_IA_ALLOW_PICKLE_FALLBACK=true
+    volumes:
+      - ./datasets:/app/datasets
+      - ./ml/artifacts:/app/ml/artifacts
+      - ./output:/app/output
+    restart: unless-stopped
